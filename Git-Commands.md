@@ -13,7 +13,9 @@ yum update -y
 #### Install Apache in Your Linux 
 
 yum install httpd
+
 service httpd start
+
 chkconfig httpd on
 
 #### you can test your web page by typing IP address of your PC
