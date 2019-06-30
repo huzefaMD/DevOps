@@ -1,5 +1,5 @@
 ## This file contains Installation and configuration of VCS using Git in Linux based OS.
-# The line start from # considor it is a decription of Command or a Task.
+##The line start from # considor it is a decription of Command or a Task.
 
 # Launch AWS EC2 Linux Instance or Create VM and Install Linux based OS.
 
