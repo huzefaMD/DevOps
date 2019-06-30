@@ -1,7 +1,6 @@
-## This file contains Installation and configuration of VCS using Git in Linux based OS.
-##The line start from # considor it is a decription of Command or a Task.
+# This file contains Installation and configuration of VCS using Git in Linux based OS.
 
-# Launch AWS EC2 Linux Instance or Create VM and Install Linux based OS.
+#### Launch AWS EC2 Linux Instance or Create VM and Install Linux based OS.
 
 # After launching your EC2 instance connect via Putty or Gitbash
 # If you are using Local VM then connect directly.
