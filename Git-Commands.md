@@ -8,7 +8,7 @@
 
 #### Update you OS.
 
-yum update -y
+*yum update -y*
 
 #### Install Apache in Your Linux 
 
