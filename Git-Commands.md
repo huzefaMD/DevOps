@@ -19,3 +19,9 @@
 *chkconfig httpd on*
 
 #### you can test your web page by typing IP address of your PC
+
+#### Download and Install Git
+
+*yum install git -y*
+
+
