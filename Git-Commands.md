@@ -24,4 +24,14 @@
 
 *yum install git -y*
 
+#### After installing git go to default home directory of Apache.
+
+*cd /var/www/html*
+
+#### Create a file **index.html** 
+
+*touch index.html*
+
+
+
 
