@@ -34,10 +34,69 @@
 
 #### edit the file with some html coding.
 
-<h4>this is heading</h4>
+*<h4>this is heading</h4>*
 
 #### save and close the file.
 
+*:wq*
 
+#### Test the web Page by typing the ip address of the Server in another computer.
 
+*IP Address*
 
+#### Create a **github** account for testing the git configuration
+
+#### Create a Repository in github so that you can **PULL** and **PUSH** from the local git repository.
+
+#### While you creating git repository it will create README.MD file with **master** branch
+
+#### In Local Linux computer (Web Server) go to the path.
+
+*cd /var/www/html*
+
+#### Intial git command **This command to inital git in located folder**
+
+*git init*
+
+#### check the status 
+
+*git status*
+
+#### configure git 
+
+*git config --global user.email "huzefa@sansbound.com"*
+*git config --global user.name "Huzefa"*
+
+#### Create Key Pair to Authenticate git with github repository
+
+*ssh-keygen -t rsa -b 4096 -C "yourname@domain.com"*
+*eval "$(ssh-agent -s)"*
+*ssh-add /root/.ssh/id_rsa*
+
+#### copy the public key in key pair from the local path
+
+*cat /root/.ssh/id_rsa.pub*
+
+#### go to github repository
+#### select the repository
+#### select the settings
+#### deploy keys
+#### add key by typing Name and Paste the key which you copied from local PC.
+
+#### copy the URL of git repository of **https** and **ssh**
+#### add in the local git as **remote origin** using following commands
+
+_git remote add origin <url of git repo> **https**_
+_git remote set-url origin <url of git repo> **ssh**_
+
+#### Pull Repository from remote to local
+
+*git pull origin master*
+
+#### Push Repository from Local to remote
+
+*git push origin master*
+
+#### now you can check the staus of local
+
+*git status* 
