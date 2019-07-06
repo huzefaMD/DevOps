@@ -64,8 +64,8 @@
 
 #### configure git 
 
-*"git config --global user.email "huzefa@sansbound.com"*
-*"git config --global user.name "Huzefa"*
+*git config --global user.email "huzefa@sansbound.com"*
+*git config --global user.name "Huzefa"*
 
 #### Create Key Pair to Authenticate git with github repository
 
