@@ -64,13 +64,13 @@
 
 #### configure git 
 
-*git config --global user.email huzefa@sansbound.com*
+*git config --global user.email huzefa@sansbound.com* | 
 *git config --global user.name Huzefa*
 
 #### Create Key Pair to Authenticate git with github repository
 
-*ssh-keygen -t rsa -b 4096 -C "yourname@domain.com"*
-*eval "$(ssh-agent -s)"*
+*ssh-keygen -t rsa -b 4096 -C "yourname@domain.com"* | 
+*eval "$(ssh-agent -s)"* | 
 *ssh-add /root/.ssh/id_rsa*
 
 #### copy the public key in key pair from the local path
