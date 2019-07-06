@@ -32,6 +32,12 @@
 
 *touch index.html*
 
+#### edit the file with some html coding.
+
+*<h1>this is heading</h1>
+
+#### save and close the file.
+
 
 
 
