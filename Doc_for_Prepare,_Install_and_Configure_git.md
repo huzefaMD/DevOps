@@ -100,3 +100,5 @@ _git remote set-url origin <url of git repo> **ssh**_
 #### now you can check the staus of local
 
 *git status* 
+
+[Git commands](https://github.com/huzefaMD/DevOps/blob/master/Git-Commands.md)
