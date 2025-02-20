@@ -1,3 +1,3 @@
-#Basic Linux Commands for DevOps
+# Basic Linux Commands for DevOps
 
-##Use any Linux OS (Redhat/Ubuntu/Amazon)
+## Use any Linux OS (Redhat/Ubuntu/Amazon)
