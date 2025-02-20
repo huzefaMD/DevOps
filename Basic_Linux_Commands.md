@@ -22,4 +22,6 @@
 16. `rm -r` Deletes a file or directory recursively
 17. `rm -d` Delete empty directories
 
-# 
+### File Manipulation
+
+18. `touch` 
