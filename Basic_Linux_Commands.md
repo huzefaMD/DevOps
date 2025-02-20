@@ -4,4 +4,4 @@
 
 ### File and Directory Management
 
-- Copies files and directories 
+- `cp` Copies files and directories 
