@@ -4,4 +4,10 @@
 
 ### File and Directory Management
 
-- `cp` Copies files and directories 
+- `cp` Copies files and directories
+- `pwd` Prints the current working directory
+- `cd` Changes current directory
+- `cd..` Changes to the parent directory
+- `cd -` Changes to previous directory
+- `cd ~` Changes to home directory
+- 
