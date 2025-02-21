@@ -37,3 +37,13 @@
 28. `sort` Sorts lines of a text file
 29. `sort -r` Sorts file reversely
 30. `sort -u` Removes duplicates and sorts unique values
+
+### Network Configuration
+
+40. `ifconfig` Displays network interface configuration information
+41. `ifconfig -a` Displays all interfaces available even if those are down
+42. `ifconfig -s` Displays short list of network interface
+43. `ip address` Dieplays all IP addresses related with all network devices
+44. `ip link` Shows all network interfaces available on the system
+45. `nslookup` Queries the DNS server for information about a domain name or IP address
+46. `curl` Facilitates the transfer of data to or from a server, using any of the protocols it supports.
