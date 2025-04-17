@@ -1,0 +1,85 @@
+Install Minikube on Ubuntu 22.04 LTS
+
+# Update system packages
+sudo apt update -y
+
+# Install required packages
+sudo apt install curl wget apt-transport-https -y
+
+# Install Docker
+sudo apt install docker.io
+
+# Configure Docker to run without sudo
+sudo usermod -aG docker $USER
+sudo chmod 666 /var/run/docker.sock
+
+# Check virtualization support
+egrep -q 'vmx|svm' /proc/cpuinfo && echo yes || echo no
+
+# Install KVM and related tools
+sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon
+
+# Add user to libvirt groups
+sudo adduser -a $USER libvirt
+sudo adduser -a $USER libvirt-qemu
+
+# Reload group memberships
+newgrp libvirt
+newgrp libvirt-qemu
+
+# Download Minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+# Install Minikube
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+# Verify Minikube installation
+minikube version
+
+Install kubectl
+
+# Download kubectl binary
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+# Make kubectl executable
+chmod +x ./kubectl
+
+# Move kubectl to system path
+sudo mv kubectl /usr/local/bin/
+
+# Verify kubectl installation
+kubectl version --client --output=yaml
+
+
+
+Start Minikube
+
+# Start Minikube with Docker driver
+minikube start --vm-driver docker
+
+
+Install ArgoCD on Minikube
+
+# Create ArgoCD namespace
+kubectl create namespace argocd
+
+# Apply ArgoCD installation manifests
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+Access ArgoCD UI
+
+
+# Port-forward ArgoCD server service
+kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8080:443
+
+
+Retrieve ArgoCD Admin Password
+
+# Get the initial admin password
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+
+
+
+
