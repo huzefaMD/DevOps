@@ -1,1 +1,33 @@
+--- # This is First playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
 
+
+
+--- # This is first task
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+          - name: install httpd on redhat
+            action: yum name=httpd state=installed
+
+
+
+
+
+
+--- # This is Variable file for test
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+          pkgname: httpd
+          task:
+                  - name: install httpd server on nodes
+                    action: yum name='{{pkgname}}' state=installed
