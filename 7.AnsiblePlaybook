@@ -28,6 +28,6 @@
   connection: ssh
   vars:
           pkgname: httpd
-          task:
-                  - name: install httpd server on nodes
-                    action: yum name='{{pkgname}}' state=installed
+ tasks:
+          - name: install httpd server on nodes
+            action: yum name='{{pkgname}}' state=installed
