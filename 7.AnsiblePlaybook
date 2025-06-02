@@ -31,3 +31,133 @@
  tasks:
           - name: install httpd server on nodes
             action: yum name='{{pkgname}}' state=installed
+
+
+
+
+
+
+
+--- # Creating an EC2 Instance 
+
+- name: Creating an EC2 Instance with ansible cli
+
+  hosts: localhost
+
+  vars:
+
+    region: ap-south-1
+
+    instance_type: t3.micro
+
+    ami: ami-0f9d9a251c1a44858
+
+    key_name: ansible-demo
+
+    vpc_name: ansible-vpc-test
+
+    cidr_block: "10.10.0.0/16"
+
+    cidr: "10.10.0.0/24"
+
+    aws_access_key:<YOUR ACCESS KEY>
+
+    aws_secret_key: <YOUR SECRET KEY>
+
+
+  tasks:
+
+    - name: Create a new VPC 
+
+      amazon.aws.ec2_vpc_net:
+
+        name: "Ansible-Test"
+
+        cidr_block: "{{ cidr_block }}"
+
+        aws_access_key: "{{ aws_access_key }}"
+
+        aws_secret_key: "{{ aws_secret_key }}"
+
+        region: "{{ region }}"
+
+      register: vpc
+
+
+    - name: Create a new Subnet
+
+      amazon.aws.ec2_vpc_subnet:
+
+        aws_access_key: "{{ aws_access_key }}"
+
+        aws_secret_key: "{{ aws_secret_key }}"
+
+        cidr: "{{ cidr }}"
+
+        region: "{{ region }}"
+
+        vpc_id: "{{ vpc.vpc.id }}"
+
+      register: subnet
+    
+
+    - name: Create a Security Group  
+
+      amazon.aws.ec2_security_group:
+
+        name: "Ansible-Test-Security-Group"
+
+        description: "Ansible-Testing"
+
+        aws_access_key: "{{ aws_access_key }}"
+
+        aws_secret_key: "{{ aws_secret_key }}"
+
+        vpc_id: "{{ vpc.vpc.id }}"
+
+        region: "{{ region }}"
+
+        rules:
+
+          - proto: tcp
+
+            ports:
+
+            - 80
+
+            cidr_ip: 0.0.0.0/0
+
+            rule_desc: "allow all on port 80"
+
+      register: security_group
+   
+
+    - name: Launch an EC2 Instance
+
+      amazon.aws.ec2_instance:
+
+        name: "Test-Ansible"
+
+        key_name: "{{ key_name }}"
+
+        aws_access_key: "{{ aws_access_key }}"
+
+        aws_secret_key: "{{ aws_secret_key }}"
+
+        vpc_subnet_id: "{{ subnet.subnet.id }}"
+
+        instance_type: "{{ instance_type }}"
+
+        security_group: "{{ security_group.group_id  }}"
+
+        count: 1
+
+        wait: yes
+
+        aws_region: "ap-south-1"
+
+        network:
+
+          assign_public_ip: true
+
+        image_id: "{{ ami }}"
