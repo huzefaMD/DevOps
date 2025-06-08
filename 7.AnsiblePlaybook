@@ -75,7 +75,7 @@ ansible demo [-1] -b -m copy -a "src=file.txt dest=/tmp" - this command is to co
 
 ansible demo -b -m copy -a "src=logo.bmp dest=/tmp" - this command is to copy file from Ansible to demo node group
 
-ansible demo -m setup
+ansible demo -m setup - this command to see 
 
 ansible demo -m setup -a "filter=*ipv4*"
 
