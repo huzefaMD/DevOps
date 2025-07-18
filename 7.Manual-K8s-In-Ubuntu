@@ -152,7 +152,7 @@ sudo systemctl daemon-reload && sudo systemctl restart docker
 
 7. Open the kubeadm configuration file:
 
-sudo nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+sudo nano /lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 
 
 8. Add the following line to the file:
