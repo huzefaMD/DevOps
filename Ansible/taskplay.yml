@@ -1,0 +1,9 @@
+--- #This playbook to run a task
+
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+          - name: Install Web on Redhat Nodes
+            action: yum name=httpd state=installed
